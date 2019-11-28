@@ -2,7 +2,7 @@ $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
 def checkWall(currentHead, width, height)
   if currentHead[:y] === 0
-    $potental[:up] -= 5
+    $potential[:up] -= 5
   end
 
   if currentHead[:x] === 0
@@ -41,6 +41,10 @@ def checkMySnake(currentHead, myBody)
   end
 end
 
+def decideMove()
+
+end
+
 def move(board)
   myBody = board[:you][:body]
   currentHead = myBody[0]
@@ -50,10 +54,19 @@ def move(board)
 
   # Avoidant logic
   checkWall(currentHead, width, height)
-  checkMySnake()
+  checkMySnake(currentHead, myBody)
   # checkOtherSnake
 
   # checkFood
   # checkLethality
-  return { move: :up }
+  direction = ''
+  max = 0
+  $potential.each {|key, value|
+    if value >= max
+      max = value
+      direction = key
+    end
+  }
+
+  return {move: direction}
 end
