@@ -22,6 +22,7 @@ def move(board, debug = false)
   # checkLethality
   direction = ''
   max = 0
+
   $potential.each {|key, value|
     if value >= max
       max = value
@@ -31,6 +32,10 @@ def move(board, debug = false)
 
   $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
-  debug_log = { debug: debug_log }
-  return {move: direction}.merge(debug_log)
+  if (debug) {
+    debug_log = { debug: debug_log }
+    return {move: direction}.merge(debug_log)
+  }
+
+  return {move: direction}
 end
