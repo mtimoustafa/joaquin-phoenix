@@ -14,6 +14,21 @@ def food_proximity(snake_head_location, food_locations)
   return proximities
 end
 
+def hunger_value(snake)
+  case snake[:health]
+  when 50..100
+    return 0
+  when 25..50
+    return 1
+  when 20..25
+    return 2
+  when 15..20
+    return 3
+  else
+    return 4
+  end
+end
+
 # calculates number of cells that make up a snake
 def snake_size(snake)
   return snake[:body].length
