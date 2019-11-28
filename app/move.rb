@@ -1,6 +1,7 @@
 # TODO: Implement your logic here!
 # View docs at https://docs.battlesnake.com/snake-api for example payloads.
 def move(board)
+  pp "Wtf"
   height = board[:board][:height]
   width = board[:board][:width]
   myBody = board[:you][:body]
