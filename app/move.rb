@@ -1,6 +1,8 @@
 require './app/helpers/wall'
 require './app/helpers/checkMySnake'
 
+$potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
+
 def move(board, debug = false)
   debug_log = { board: board }
 
@@ -25,6 +27,8 @@ def move(board, debug = false)
       direction = key
     end
   }
+  
+  $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
   debug_log = { debug: debug_log }
   return {move: direction}.merge(debug_log)
