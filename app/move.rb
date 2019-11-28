@@ -27,7 +27,7 @@ def move(board, debug = false)
   end
 
   # Aggressive logic
-  check_contests(board)
+  # check_contests(board)
 
   # checkLethality
   direction = ''
