@@ -40,7 +40,7 @@ def adjacent_heads(our_snake, other_snakes)
   our_head = our_snake[:body].first
   other_snake_heads = other_snakes.map { |s| s[:body].first }
 
-  other_snake_heads.keep_if { |head| is_adjacent(our_head, head) }
+  other_snake_heads.keep_if { |head| is_adjacent?(our_head, head) }
   return other_snake_heads
 end
 
