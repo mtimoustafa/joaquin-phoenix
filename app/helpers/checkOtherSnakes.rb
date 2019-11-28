@@ -7,19 +7,19 @@ def checkOtherSnakes(currentHead, enemySnakes)
   enemySnakes.each do |snake|
     snake[:body].each do |coord|
       if goDown[:x] === coord[:x] && goDown[:y] === coord[:y]
-        $potential[:down] -= 5
+        $potential[:down] -= 10
       end
 
       if goUp[:x] === coord[:x] && goUp[:y] === coord[:y]
-        $potential[:up] -= 5
+        $potential[:up] -= 10
       end
 
       if goRight[:x] === coord[:x] && goRight[:y] === coord[:y]
-        $potential[:right] -= 5
+        $potential[:right] -= 10
       end
 
       if goLeft[:x] === coord[:x] && goLeft[:y] === coord[:y]
-        $potential[:left] -= 5
+        $potential[:left] -= 10
       end
     end
   end

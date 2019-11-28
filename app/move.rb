@@ -26,6 +26,9 @@ def move(board, debug = false)
     check_food(currentHead, existingFood, board[:you])
   end
 
+  # Aggressive logic
+  check_contests(board)
+
   # checkLethality
   direction = ''
   max = 0
