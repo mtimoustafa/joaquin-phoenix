@@ -59,11 +59,11 @@ def contesting_heads(our_snake, other_snakes)
     other_x = snake[:body].first[:x]
     other_y = snake[:body].first[:y]
 
-    $potential[:right] -= 5 if (other_y > our_head[:y])
-    $potential[:left] -= 5 if (other_y < our_head[:y])
+    $potential[:down] -= 5 if (other_y > our_head[:y])
+    $potential[:up] -= 5 if (other_y < our_head[:y])
 
-    $potential[:down] -= 5 if (other_x > our_head[:x])
-    $potential[:up] -= 5 if (other_x < our_head[:x])
+    $potential[:right] -= 5 if (other_x > our_head[:x])
+    $potential[:left] -= 5 if (other_x < our_head[:x])
   end
 end
 

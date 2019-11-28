@@ -19,14 +19,11 @@ def move(board, debug = false)
 
   # Avoidant logic
   checkWall(currentHead, width, height)
-  checkMySnake(currentHead, myBody)
-  checkOtherSnakes(currentHead, board[:board][:snakes])
 
   # checkFood
   if existingFood.present?
     check_food(currentHead, existingFood, board[:you])
   end
-
   # Aggressive logic
   check_contests(board)
 
