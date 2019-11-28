@@ -7,11 +7,11 @@ def checkWall(currentHead, width, height)
     $potential[:up] -= 5
   end
 
-  if currentHead[:y] === height - 1
+  if currentHead[:y] === width - 1
     $potential[:right] -= 5
   end
 
-  if currentHead[:x] === width - 1
+  if currentHead[:x] === height - 1
     $potential[:down] -= 5
   end
 end
