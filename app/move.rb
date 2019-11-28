@@ -45,7 +45,7 @@ def decideMove()
 
 end
 
-def move(board)
+def move(board, debug = false)
   myBody = board[:you][:body]
   currentHead = myBody[0]
   width = board[:board][:width]
