@@ -3,6 +3,7 @@ require 'rack/contrib'
 require 'sinatra'
 require './app/util'
 require './app/move'
+require './test/test_deciders.rb'
 
 use Rack::PostBodyContentTypeParser
 
@@ -35,6 +36,13 @@ end
 post '/test' do
   request = underscore(env['rack.request.form_hash'])
   response = move(request, true)
+  content_type :json
+  camelcase(response).to_json
+end
+
+post '/test_deciders' do
+  request = underscore(env['rack.request.form_hash'])
+  response = test_deciders(request)
   content_type :json
   camelcase(response).to_json
 end
