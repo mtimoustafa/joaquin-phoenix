@@ -1,8 +1,8 @@
 def checkMySnake(currentHead, myBody)
-  goRight = { :x => currentHead[:x] + 1, :y => currentHead[:y] }
-  goLeft = { :x => currentHead[:x] - 1, :y => currentHead[:y] }
-  goUp = { :x => currentHead[:x], :y => currentHead[:y] - 1 }
-  goDown = { :x => currentHead[:x], :y => currentHead[:y] + 1 }
+  goDown = { :x => currentHead[:x] + 1, :y => currentHead[:y] }
+  goUp = { :x => currentHead[:x] - 1, :y => currentHead[:y] }
+  goLeft = { :x => currentHead[:x], :y => currentHead[:y] - 1 }
+  goRight = { :x => currentHead[:x], :y => currentHead[:y] + 1 }
 
   if myBody.include?(goRight)
     $potential[:right] -= 5
