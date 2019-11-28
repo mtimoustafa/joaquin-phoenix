@@ -32,6 +32,13 @@ post '/move' do
   camelcase(response).to_json
 end
 
+post '/test' do
+  request = underscore(env['rack.request.form_hash'])
+  response = move(request, true)
+  content_type :json
+  camelcase(response).to_json
+end
+
 post '/end' do
   "end\n"
 end
