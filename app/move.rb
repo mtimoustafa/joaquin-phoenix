@@ -46,6 +46,8 @@ def decideMove()
 end
 
 def move(board, debug = false)
+  debug_log = { board: board }
+
   myBody = board[:you][:body]
   currentHead = myBody[0]
   width = board[:board][:width]
@@ -68,5 +70,6 @@ def move(board, debug = false)
     end
   }
 
-  return {move: direction}
+  debug_log = { debug: debug_log }
+  return {move: direction}.merge(debug_log)
 end
