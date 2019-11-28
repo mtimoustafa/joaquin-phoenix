@@ -15,8 +15,8 @@ def move(board, debug = false)
 
   # Avoidant logic
   checkWall(currentHead, width, height)
-  # checkMySnake(currentHead, myBody)
-  # checkOtherSnakes(currentHead, board[:board][:snakes])
+  checkMySnake(currentHead, myBody)
+  checkOtherSnakes(currentHead, board[:board][:snakes])
 
   # checkFood
   # checkLethality
@@ -29,7 +29,6 @@ def move(board, debug = false)
     end
   }
 
-  pp $potential
   $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
   debug_log = { debug: debug_log }
