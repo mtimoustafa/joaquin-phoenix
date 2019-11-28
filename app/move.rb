@@ -3,6 +3,7 @@ require './app/helpers/checkMySnake'
 require './app/helpers/checkOtherSnakes'
 require './app/helpers/food'
 require './app/helpers/deciders'
+require './app/helpers/contests'
 
 $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
@@ -27,7 +28,7 @@ def move(board, debug = false)
   end
 
   # Aggressive logic
-  # check_contests(board)
+  check_contests(board)
 
   # checkLethality
   direction = ''
