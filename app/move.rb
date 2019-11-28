@@ -19,17 +19,31 @@ def move(board, debug = false)
 
   # Avoidant logic
   checkWall(currentHead, width, height)
+  pp "wall:"
+  pp $potential
+  checkMySnake(currentHead, myBody)
+  pp "ourself"
+  pp $potential
+  checkOtherSnakes(currentHead, board[:board][:snakes])
+  pp "others"
+  pp $potential
 
   # checkFood
   if existingFood.present?
     check_food(currentHead, existingFood, board[:you])
   end
+  pp "food"
+  pp $potential
+
   # Aggressive logic
   check_contests(board)
 
+  pp "head"
+  pp $potential
+
   # checkLethality
   direction = ''
-  max = 0
+  max = -99
 
   $potential.each {|key, value|
     if value >= max
@@ -44,6 +58,5 @@ def move(board, debug = false)
     debug_log = { debug: debug_log }
     return {move: direction}.merge(debug_log)
   end
-
   return {move: direction}
 end
