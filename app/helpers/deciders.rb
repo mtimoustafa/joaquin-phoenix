@@ -37,7 +37,7 @@ def contesting_heads(our_snake, other_snakes)
 
   other_snakes.keep_if { |snake|
     snake_head = snake[:body].first
-    return (snake_head[:x] - head[:x]).abs + (snake_head[:y] - head[:y]).abs == 2  
+    return (our_head[:x] - snake_head[:x]).abs + (our_head[:y] - snake_head[:y]).abs == 2  
   }
 
   return other_snakes.map { |snake| { id: snake[:id], safe: snake_size(snake) < snake_size(our_snake) } }
