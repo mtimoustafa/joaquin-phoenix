@@ -16,13 +16,13 @@ end
 
 def hunger_value(snake)
   case snake[:health]
-  when 50..100
+  when 51..100
     return 0
-  when 25..50
+  when 26..50
     return 1
-  when 20..25
+  when 21..25
     return 2
-  when 15..20
+  when 16..20
     return 3
   else
     return 4
