@@ -3,7 +3,7 @@ require 'rack/contrib'
 require 'sinatra'
 require './app/util'
 require './app/move'
-require './test/test_deciders.rb'
+require './app/test/test_deciders.rb'
 
 use Rack::PostBodyContentTypeParser
 
