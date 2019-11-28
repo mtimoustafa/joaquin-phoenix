@@ -5,20 +5,22 @@ def checkOtherSnakes(currentHead, enemySnakes)
   goRight = { :x => currentHead[:x] + 1, :y => currentHead[:y] }
 
   enemySnakes.each do |snake|
-    if snake[:body].include?(goRight)
-      $potential[:right] -= 5
-    end
+    snake[:body].each do |coord|
+      if goDown[:x] === coord[:x] && goDown[:y] === coord[:y]
+        $potential[:down] -= 5
+      end
 
-    if snake[:body].include?(goLeft)
-      $potential[:left] -= 5
-    end
+      if goUp[:x] === coord[:x] && goUp[:y] === coord[:y]
+        $potential[:up] -= 5
+      end
 
-    if snake[:body].include?(goDown)
-      $potential[:down] -= 5
-    end
+      if goRight[:x] === coord[:x] && goRight[:y] === coord[:y]
+        $potential[:right] -= 5
+      end
 
-    if snake[:body].include?(goUp)
-      $potential[:up] -= 5
+      if goLeft[:x] === coord[:x] && goLeft[:y] === coord[:y]
+        $potential[:left] -= 5
+      end
     end
   end
 end

@@ -3,7 +3,7 @@
 def food_proximity(snake_head_location, food_locations)
   proximities = []
 
-  food_locations.each { |food_location| 
+  food_locations.each { |food_location|
     proximity = (food_location[:y] - snake_head_location[:y]) ** 2
     proximity += (food_location[:x] - snake_head_location[:x]) ** 2
     proximity = Math.sqrt(proximity)
@@ -51,7 +51,7 @@ def contesting_heads(our_snake, other_snakes)
   our_head = our_snake[:body].first
 
   other_snakes.keep_if { |snake|
-    (our_head[:x] - snake[:body].first[:x]).abs + (our_head[:y] - snake[:body].first[:y]).abs == 2  
+    (our_head[:x] - snake[:body].first[:x]).abs + (our_head[:y] - snake[:body].first[:y]).abs == 2
   }
 
   result = other_snakes.map { |snake| { id: snake[:id], safe: snake_size(snake) < snake_size(our_snake) } }
