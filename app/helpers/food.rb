@@ -1,6 +1,6 @@
 require './app/helpers/deciders'
 
-def check_food(current_head, existing_food)
+def check_food(current_head, existing_food, my_body)
   proximity_array = food_proximity(current_head, existing_food)
   closest_food_proximity = 99999999
   closest_food_index = ''
@@ -15,18 +15,18 @@ def check_food(current_head, existing_food)
   target_food = existing_food[closest_food_index]
 
   if target_food[:x] > current_head[:x]
-    $potential[:right] += hunger_value
+    $potential[:right] += hunger_value(my_body)
   end
 
   if target_food[:x] < current_head[:x]
-    $potential[:left] += hunger_value
+    $potential[:left] += hunger_value(my_body)
   end
 
   if target_food[:y] < current_head[:y]
-    $potential[:up] += hunger_value
+    $potential[:up] += hunger_value(my_body)
   end
 
   if target_food[:y] > current_head[:y]
-    $potential[:down] += hunger_value
+    $potential[:down] += hunger_value(my_body)
   end
 end

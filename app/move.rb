@@ -22,7 +22,7 @@ def move(board, debug = false)
   checkOtherSnakes(currentHead, board[:board][:snakes])
 
   # checkFood
-  check_food(currentHead, existingFood)
+  check_food(currentHead, existingFood, myBody)
 
   # checkLethality
   direction = ''
