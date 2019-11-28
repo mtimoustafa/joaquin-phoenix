@@ -64,12 +64,8 @@ def in_body?(snake_body, cell)
   return snake_body.length > 0
 end
 
-
-private
-
-
-def is_adjacent(our_head, their_head)
-  adjacent = (our_head[:x] + 1 == their_head[:x] || our_head[:x] - 1 == their_head) && (our_head[:y] == their_head[:y])
-  adjacent ||= (our_head[:y] + 1 == their_head[:y] || our_head[:y] - 1 == their_head) && (our_head[:x] == their_head[:x])
+def is_adjacent?(our_head, their_head)
+  adjacent = (our_head[:x] + 1 == their_head[:x] || our_head[:x] - 1 == their_head[:x]) && (our_head[:y] == their_head[:y])
+  adjacent ||= (our_head[:y] + 1 == their_head[:y] || our_head[:y] - 1 == their_head[:y]) && (our_head[:x] == their_head[:x])
   return adjacent;
 end
