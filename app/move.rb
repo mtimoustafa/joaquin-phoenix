@@ -1,5 +1,6 @@
 require './app/helpers/wall'
 require './app/helpers/checkMySnake'
+require './app/helpers/checkOtherSnakes'
 
 $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
@@ -15,7 +16,7 @@ def move(board, debug = false)
   # Avoidant logic
   checkWall(currentHead, width, height)
   checkMySnake(currentHead, myBody)
-  # checkOtherSnake
+  checkOtherSnakes(currentHead, board[:board][:snakes])
 
   # checkFood
   # checkLethality
