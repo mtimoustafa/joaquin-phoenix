@@ -40,7 +40,8 @@ def contesting_heads(our_snake, other_snakes)
     return (our_head[:x] - snake_head[:x]).abs + (our_head[:y] - snake_head[:y]).abs == 2  
   }
 
-  return other_snakes.map { |snake| { id: snake[:id], safe: snake_size(snake) < snake_size(our_snake) } }
+  result = other_snakes.map { |snake| { id: snake[:id], safe: snake_size(snake) < snake_size(our_snake) } }
+  return result
 end
 
 # does the cell fall in our snake's body?
