@@ -10,6 +10,7 @@ def test_deciders(request)
     food = board[:food] || []
 
     response[:food_proximity] = food_proximity(body.first, food)
+    response[:hunger_value] = hunger_value(you)
     response[:snake_size] = snake_size(you)
     response[:adjacent_heads] = adjacent_heads(you, board[:snakes])
     response[:contesting_heads] = contesting_heads(you, board[:snakes])

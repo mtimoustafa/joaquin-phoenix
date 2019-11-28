@@ -14,6 +14,21 @@ def food_proximity(snake_head_location, food_locations)
   return proximities
 end
 
+def hunger_value(snake)
+  case snake[:health]
+  when 50..100
+    return 0
+  when 25..50
+    return 1
+  when 20..25
+    return 2
+  when 15..20
+    return 3
+  else
+    return 4
+  end
+end
+
 # calculates number of cells that make up a snake
 def snake_size(snake)
   return snake[:body].length
@@ -32,27 +47,15 @@ end
 # returns all squares we can move into that are contested by other snakes
 # contesting = head can collide with us if we move into that square
 def contesting_heads(our_snake, other_snakes)
+  return if other_snakes.blank?
   our_head = our_snake[:body].first
-  other_snake_heads = other_snakes.map { |s| s[:body].first }
 
-  other_snake_heads.keep_if { |head| (our_head[:x] - head[:x]).abs + (our_head[:y] - head[:y]).abs == 2 }
-
-  return [] if (other_snake_heads.blank?)
-
-  contested = []
-  other_snake_heads.each { |head|
-    cell = {}
-
-    diff_x = head[:x] - our_head[:x]
-    diff_y = head[:y] - our_head[:y]
-    cell[:x] = diff_x != 0 ? our_head[:x] + (diff_x / diff_x.abs) : our_head[:x]
-    cell[:y] = diff_y != 0 ? our_head[:y] + (diff_y / diff_y.abs) : our_head[:y]
-
-    # next if in_body?(our_snake[:body], cell)
-    contested.push(cell)
+  other_snakes.keep_if { |snake|
+    (our_head[:x] - snake[:body].first[:x]).abs + (our_head[:y] - snake[:body].first[:y]).abs == 2  
   }
 
-  return contested
+  result = other_snakes.map { |snake| { id: snake[:id], safe: snake_size(snake) < snake_size(our_snake) } }
+  return result
 end
 
 # does the cell fall in our snake's body?
