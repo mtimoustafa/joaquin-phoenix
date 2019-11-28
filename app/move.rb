@@ -71,5 +71,6 @@ def move(board, debug = false)
   }
 
   debug_log = { debug: debug_log }
+  puts debug_log
   return {move: direction}.merge(debug_log)
 end
