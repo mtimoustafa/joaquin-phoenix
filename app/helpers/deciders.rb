@@ -36,7 +36,7 @@ def contesting_heads(our_snake, other_snakes)
   our_head = our_snake[:body].first
 
   other_snakes.keep_if { |snake|
-    snake_head = s[:body].first
+    snake_head = snake[:body].first
     return (snake_head[:x] - head[:x]).abs + (snake_head[:y] - head[:y]).abs == 2  
   }
 
