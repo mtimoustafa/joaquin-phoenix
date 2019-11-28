@@ -41,10 +41,6 @@ def checkMySnake(currentHead, myBody)
   end
 end
 
-def decideMove()
-
-end
-
 def move(board, debug = false)
   myBody = board[:you][:body]
   currentHead = myBody[0]
@@ -67,6 +63,8 @@ def move(board, debug = false)
       direction = key
     end
   }
+
+  pp $potential
 
   return {move: direction}
 end
