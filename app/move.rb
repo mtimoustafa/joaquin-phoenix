@@ -1,6 +1,8 @@
 require './app/helpers/wall'
 require './app/helpers/checkMySnake'
 require './app/helpers/checkOtherSnakes'
+require './app/helpers/food'
+require './app/helpers/deciders'
 
 $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
@@ -12,6 +14,7 @@ def move(board, debug = false)
   width = board[:board][:width]
   height = board[:board][:height]
   currentHealth = board[:you][:health]
+  existingFood = board[:board][:food]
 
   # Avoidant logic
   checkWall(currentHead, width, height)
@@ -19,6 +22,8 @@ def move(board, debug = false)
   checkOtherSnakes(currentHead, board[:board][:snakes])
 
   # checkFood
+  check_food(currentHead, existingFood)
+
   # checkLethality
   direction = ''
   max = 0
@@ -29,7 +34,7 @@ def move(board, debug = false)
       direction = key
     end
   }
-  
+
   $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
   if debug
