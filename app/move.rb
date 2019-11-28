@@ -32,10 +32,10 @@ def move(board, debug = false)
 
   $potential = { :up => 0, :right => 0, :down => 0, :left => 0 }
 
-  if (debug) {
+  if debug
     debug_log = { debug: debug_log }
     return {move: direction}.merge(debug_log)
-  }
+  end
 
   return {move: direction}
 end
