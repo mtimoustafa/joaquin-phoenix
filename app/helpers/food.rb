@@ -30,22 +30,22 @@ def check_food(current_head, existing_food, my_body, enemy_snakes)
     $potential[:down] += hunger_value(my_body, enemy_snakes)
   end
 
-  # CHASE THE HEAD
-  if enemy_snakes.length === 1 && snake_size(my_body) > snake_size(enemy_snakes[0]) + 1
-    if enemy_snakes[0][:body][0][:x] > current_head[:x]
-      $potential[:right] += 3
-    end
+  # # CHASE THE HEAD
+  # if enemy_snakes.length === 1 && snake_size(my_body) > snake_size(enemy_snakes[0]) + 1
+  #   if enemy_snakes[0][:body][0][:x] > current_head[:x]
+  #     $potential[:right] += 3
+  #   end
 
-    if enemy_snakes[0][:body][0][:x] < current_head[:x]
-      $potential[:left] += 3
-    end
+  #   if enemy_snakes[0][:body][0][:x] < current_head[:x]
+  #     $potential[:left] += 3
+  #   end
 
-    if enemy_snakes[0][:body][0][:y] < current_head[:y]
-      $potential[:up] += 3
-    end
+  #   if enemy_snakes[0][:body][0][:y] < current_head[:y]
+  #     $potential[:up] += 3
+  #   end
 
-    if enemy_snakes[0][:body][0][:y] > current_head[:y]
-      $potential[:down] += 3
-    end
-  end
+  #   if enemy_snakes[0][:body][0][:y] > current_head[:y]
+  #     $potential[:down] += 3
+  #   end
+  # end
 end

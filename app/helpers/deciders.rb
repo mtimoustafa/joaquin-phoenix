@@ -15,12 +15,12 @@ def food_proximity(snake_head_location, food_locations)
 end
 
 def hunger_value(snake, enemy_snakes)
-  return 4 if enemy_snakes.length === 1 && snake_size(snake) <= snake_size(enemy_snakes[0]) + 1
+  # return 4 if enemy_snakes.length === 1 && snake_size(snake) <= snake_size(enemy_snakes[0]) + 1
 
   case snake[:health]
-  when 61..100
+  when 81..100
     return -1
-  when 31..60
+  when 31..80
     return 0
   when 26..30
     return 1
