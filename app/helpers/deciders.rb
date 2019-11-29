@@ -53,9 +53,18 @@ def contesting_heads(our_snake, other_snakes)
   other_snakes.keep_if { |snake|
     (our_head[:x] - snake[:body].first[:x]).abs + (our_head[:y] - snake[:body].first[:y]).abs == 2
   }
+  other_snakes.keep_if { |snake| snake_size(snake) >= snake_size(our_snake) }
 
-  result = other_snakes.map { |snake| { id: snake[:id], safe: snake_size(snake) < snake_size(our_snake) } }
-  return result
+  other_snakes.each do |snake|
+    other_x = snake[:body].first[:x]
+    other_y = snake[:body].first[:y]
+
+    $potential[:down] -= 5 if (other_y > our_head[:y])
+    $potential[:up] -= 4 if (other_y < our_head[:y])
+
+    $potential[:right] -= 5 if (other_x > our_head[:x])
+    $potential[:left] -= 4 if (other_x < our_head[:x])
+  end
 end
 
 # does the cell fall in our snake's body?

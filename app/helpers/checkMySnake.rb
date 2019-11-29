@@ -5,18 +5,18 @@ def checkMySnake(currentHead, myBody)
   goRight = { :x => currentHead[:x] + 1, :y => currentHead[:y] }
 
   if myBody.include?(goRight)
-    $potential[:right] -= 5
+    $potential[:right] -= 10
   end
 
   if myBody.include?(goLeft)
-    $potential[:left] -= 5
+    $potential[:left] -= 10
   end
 
   if myBody.include?(goDown)
-    $potential[:down] -= 5
+    $potential[:down] -= 10
   end
 
   if myBody.include?(goUp)
-    $potential[:up] -= 5
+    $potential[:up] -= 10
   end
 end
