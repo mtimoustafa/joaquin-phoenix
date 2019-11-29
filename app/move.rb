@@ -30,7 +30,7 @@ def move(board, debug = false)
 
   # checkFood
   if existingFood.present?
-    check_food(currentHead, existingFood, board[:you])
+    check_food(currentHead, existingFood, board[:you], board[:board][:snakes])
   end
   pp "food"
   pp $potential
